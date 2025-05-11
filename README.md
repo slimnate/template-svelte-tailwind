@@ -25,6 +25,10 @@ npm run dev
 npm run dev -- --open
 ```
 
+### Stuff to replace
+- Replace the OG meta tags in `src/app.html`
+- 
+
 ## Building
 
 To create a production version of your app:
