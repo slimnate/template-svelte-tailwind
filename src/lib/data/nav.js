@@ -1,9 +1,5 @@
 const navItems = [
 	{
-		href: '/portfolio',
-		text: 'Portfolio'
-	},
-	{
 		href: '/pricing',
 		text: 'Pricing'
 	},
