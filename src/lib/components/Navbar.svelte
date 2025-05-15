@@ -60,7 +60,7 @@
 					>
 						<a
 							class="text-blackcoffee/70 hover:text-blackcoffee hover:drop-shadow-lg sm:text-lg"
-							on:click={handleNavItemClick}
+							onclick={handleNavItemClick}
 							{href}
 							data-twe-nav-link-ref>{text}</a
 						>
