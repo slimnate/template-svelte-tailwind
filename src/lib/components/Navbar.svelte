@@ -7,29 +7,6 @@
 		initTWE({ Collapse });
 	});
 
-	const navItems = [
-		{
-			href: '/portfolio',
-			text: 'Portfolio'
-		},
-		{
-			href: '/pricing',
-			text: 'Pricing'
-		},
-		{
-			href: '/booking',
-			text: 'Booking'
-		},
-		{
-			href: '/about',
-			text: 'About'
-		},
-		{
-			href: '/faq',
-			text: 'FAQ'
-		}
-	];
-
 	/**
 	 * @param {MouseEvent & { currentTarget: EventTarget & HTMLAnchorElement; }} event
 	 */
@@ -38,6 +15,8 @@
 		const collapse = Collapse.getInstance(document.querySelector('#navbarContent'));
 		collapse.hide();
 	}
+
+	let { navItems, siteName = 'Example Business' } = $props();
 </script>
 
 <!-- Main navigation container -->
@@ -58,8 +37,7 @@
 
 		<!-- Navbar title -->
 		<div class="flex grow items-center justify-center md:justify-start">
-			<a class="pr-2 text-center text-xl" href="/"><span class="semibold">Example Business</span></a
-			>
+			<a class="pr-2 text-center text-xl" href="/"><span class="semibold">{siteName}</span></a>
 		</div>
 
 		<!-- Collapsible navbar container -->
