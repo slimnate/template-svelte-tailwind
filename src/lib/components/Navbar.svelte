@@ -19,12 +19,11 @@
 	let { navItems, siteName = 'Example Business' } = $props();
 </script>
 
-<!-- Main navigation container -->
-<nav class="relative flex w-full items-center justify-between py-3 shadow-lg" data-twe-navbar-ref>
+<nav class="navbar bg-secondary text-secondary-content relative shadow-sm" data-twe-navbar-ref>
 	<div class="my-auto flex w-full flex-wrap items-center justify-between px-3">
 		<!-- Hamburger button for mobile view -->
 		<button
-			class="block border-0 bg-transparent px-2 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:ring-0 focus:outline-none md:hidden"
+			class="btn btn-ghost md:hidden"
 			type="button"
 			data-twe-collapse-init
 			data-twe-target="#navbarContent"
@@ -37,32 +36,30 @@
 
 		<!-- Navbar title -->
 		<div class="flex grow items-center justify-center md:justify-start">
-			<a class="pr-2 text-center text-xl" href="/"><span class="semibold">{siteName}</span></a>
+			<a class="btn btn-ghost text-xl" href="/">{siteName}</a>
 		</div>
 
 		<!-- Collapsible navbar container -->
 		<div
-			class="!visible hidden flex-grow basis-[100%] md:mt-0 md:!flex md:basis-auto md:justify-end"
+			class="menu !visible hidden flex-grow basis-[100%] md:mt-0 md:!flex md:basis-auto md:justify-end"
 			id="navbarContent"
 			data-twe-collapse-item
 		>
 			<!-- Left links -->
 			<ul
-				class="list-style-none my-auto flex flex-col justify-end pl-0 md:flex-row"
+				class="list-style-none flex flex-col justify-end pl-0 font-semibold md:flex-row"
 				data-twe-navbar-nav-ref
 			>
+				<!-- Loop through navItems and create a list item for each -->
 				{#each navItems as { href, text }, index}
 					<li
 						class:mt-4={index === 0}
 						class:mb-0={index === navItems.length - 1}
-						class="my-2 md:mt-0 md:mb-0 md:px-2 md:pr-2"
+						class="md:mt-0 md:mb-0"
 						data-twe-nav-item-ref
 					>
-						<a
-							class="text-blackcoffee/70 hover:text-blackcoffee hover:drop-shadow-lg sm:text-lg"
-							onclick={handleNavItemClick}
-							{href}
-							data-twe-nav-link-ref>{text}</a
+						<a class="sm:text-lg" onclick={handleNavItemClick} {href} data-twe-nav-link-ref
+							>{text}</a
 						>
 					</li>
 				{/each}

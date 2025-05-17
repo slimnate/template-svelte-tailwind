@@ -1,7 +1,6 @@
 <script>
 	import IconHouse from './icons/IconHouse.svelte';
 	import IconFacebook from './icons/IconFacebook.svelte';
-	import IconGoogle from './icons/IconGoogle.svelte';
 	import IconInstagram from './icons/IconInstagram.svelte';
 	import IconMail from './icons/IconMail.svelte';
 	import IconPhone from './icons/IconPhone.svelte';
@@ -31,79 +30,91 @@
 
 <footer class="text-center lg:text-left">
 	<div
-		class="border-xanadu flex items-center justify-center border-b p-4 md:justify-between md:p-6"
+		class="border-neutral flex items-center justify-center border-b p-4 md:justify-between md:p-6"
 	>
+		<!-- Social media links -->
 		<div class="mr-12 hidden md:block">
 			<span>Get connected on social networks:</span>
 		</div>
-		<div class="flex justify-center">
+		<div class="text-secondary flex justify-center">
 			{#if fb_url}
-				<a href={fb_url} class="mr-6" target="_blank" rel="noreferrer">
+				<a href={fb_url} class="mr-6 hover:scale-[1.05]" target="_blank" rel="noreferrer">
 					<IconFacebook />
 				</a>
 			{/if}
 			{#if ig_url}
-				<a href={ig_url} class="mr-6" target="_blank" rel="noreferrer">
+				<a href={ig_url} class="mr-6 hover:scale-[1.05]" target="_blank" rel="noreferrer">
 					<IconInstagram />
 				</a>
 			{/if}
 			{#if tw_url}
-				<a href={tw_url} class="mr-6" target="_blank" rel="noreferrer">
+				<a href={tw_url} class="mr-6 hover:scale-[1.05]" target="_blank" rel="noreferrer">
 					<IconTwitter />
 				</a>
 			{/if}
 			{#if yt_url}
-				<a href={yt_url} class="mr-6" target="_blank" rel="noreferrer">
+				<a href={yt_url} class="mr-6 hover:scale-[1.05]" target="_blank" rel="noreferrer">
 					<IconYoutube />
 				</a>
 			{/if}
 			{#if li_url}
-				<a href={li_url} class="mr-6" target="_blank" rel="noreferrer">
+				<a href={li_url} class="mr-6 hover:scale-[1.05]" target="_blank" rel="noreferrer">
 					<IconLinkedIn />
 				</a>
 			{/if}
 			{#if tiktok_url}
-				<a href={tiktok_url} class="mr-6" target="_blank" rel="noreferrer">
+				<a href={tiktok_url} class="mr-6 hover:scale-[1.05]" target="_blank" rel="noreferrer">
 					<IconTikTok />
 				</a>
 			{/if}
 		</div>
 	</div>
+
+	<!-- Footer links and contact information -->
 	<div class="mx-6 py-6 text-center md:text-left">
 		<div class="grid-1 grid gap-8 md:grid-cols-3">
-			<div class="border-blackcoffee flex flex-col md:col-span-2 md:border-r-2 md:text-center">
-				<h6 class="mb-4 flex justify-center font-semibold uppercase">Links</h6>
+			<!-- Footer links -->
+			<div class="border-neutral flex flex-col md:col-span-2 md:border-r md:text-center">
+				<h6 class="text-primary mb-4 flex justify-center font-semibold uppercase">Links</h6>
 				<div class="grid-1 grid gap-4 sm:grid-cols-2">
 					{#each footerLinks as { href, text }}
-						<a {href} class="hover:scale-[1.02] hover:drop-shadow-lg">{text}</a>
+						<a {href} class="drop-shadow-secondary hover:scale-[1.05] hover:drop-shadow-lg"
+							>{text}</a
+						>
 					{/each}
 				</div>
 			</div>
-			<div class="">
-				<h6 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">Contact</h6>
+
+			<!-- Contact information -->
+			<div>
+				<h6 class="text-primary mb-4 flex justify-center font-semibold uppercase md:justify-start">
+					Contact
+				</h6>
 				{#if address}
 					<p class="mb-4 flex items-center justify-center md:justify-start">
-						<IconHouse />
+						<span class="text-secondary"><IconHouse /></span>
 						{address}
 					</p>
 				{/if}
 				{#if email}
 					<p class="mb-4 flex items-center justify-center md:justify-start">
-						<IconMail />
+						<span class="text-secondary"><IconMail /></span>
 						{email}
 					</p>
 				{/if}
 				{#if phone}
 					<p class="mb-4 flex items-center justify-center md:justify-start">
-						<IconPhone />
+						<span class="text-secondary"> <IconPhone /> </span>
 						{phone}
 					</p>
 				{/if}
 			</div>
 		</div>
 	</div>
+
+	<!-- Copyright -->
 	<div class="p-4 text-center text-sm">
 		<span>© {cp_year} Copyright</span>
-		<a class="font-semibold text-gray-600" href={cp_url}>{cp_holder}</a>
+		<a class="text-primary font-semibold" href={cp_url}>{cp_holder}</a>
 	</div>
 </footer>
