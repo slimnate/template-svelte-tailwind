@@ -8,7 +8,7 @@
 	title="Welcome to {name}"
 	subtitle={description}
 	heroImage="https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp"
-	heroImageHeight="40vh"
+	size="large"
 	cta_text="Book Now"
 	cta_link="/booking"
 />
