@@ -13,11 +13,11 @@
 		<div
 			class={pkg.featured
 				? 'card bg-primary text-primary-content shadow-lg'
-				: 'card bg-base-100 shadow-sm'}
+				: 'card bg-base-100 shadow-lg'}
 		>
-			<div class="card-body flex h-full flex-col justify-between">
+			<div class="card-body relative flex h-full flex-col justify-between pt-8">
 				{#if pkg.featured}
-					<div class="badge badge-warning">Most Popular</div>
+					<div class="badge badge-warning absolute top-2 left-2">Most Popular</div>
 				{/if}
 				<h2 class="text-3xl font-bold">{pkg.name}</h2>
 				<span class="text-xl">${pkg.price}</span>
