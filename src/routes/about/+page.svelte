@@ -10,7 +10,7 @@
 	size="small"
 />
 
-<div class="max-w-6xl px-12">
+<div class="mx-auto max-w-6xl px-12">
 	<div class="grid grid-cols-1 gap-8 pt-12 text-left md:grid-cols-3">
 		<!-- Mission Card -->
 		<div class="card card-border shadow-xl">
