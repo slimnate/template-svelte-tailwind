@@ -1,4 +1,5 @@
 <script>
+	import TeamMembers from '$lib/components/TeamMembers.svelte';
 	import TitleHero from '$lib/components/TitleHero.svelte';
 	import { aboutData } from '$lib/data/about.js';
 </script>
@@ -42,23 +43,6 @@
 	</div>
 
 	<div class="mx-auto mt-12 max-w-4xl text-center">
-		<h2 class="mb-4 text-3xl font-bold">Meet Our Team</h2>
-		<p class="mb-8">
-			Our team is composed of passionate professionals who are dedicated to making a difference.
-			Together, we strive to create a positive impact for our customers and the community.
-		</p>
-		<div class="my-12 flex flex-wrap justify-center gap-6">
-			{#each aboutData.team as member}
-				<div>
-					<div class="avatar">
-						<div class="ring-secondary ring-offset-base-100 w-32 rounded-full ring-2 ring-offset-2">
-							<img src={member.image} alt={member.name} />
-						</div>
-					</div>
-					<p class="mt-2 text-center">{member.name}</p>
-					<p class="text-center text-sm text-gray-500">{member.role}</p>
-				</div>
-			{/each}
-		</div>
+		<TeamMembers team={aboutData.team} />
 	</div>
 </div>
