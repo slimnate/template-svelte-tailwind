@@ -1,15 +1,13 @@
 <script>
 	/**
-	 * @typedef {Object} FAQ
-	 * @property {string} question - The question to be displayed.
-	 * @property {string} answer - The answer to the question.
+	 * @typedef {import('$lib/data/faq.js').FAQItem} FAQItem
 	 */
 
 	/**
-	 * @type {FAQ[]}
+	 * @type {FAQItem[]}
 	 * @description An array of frequently asked questions and their answers.
 	 */
-	export let faqs = [];
+	export const faqs = [];
 </script>
 
 <div class="flex flex-col items-center py-12 text-left">
