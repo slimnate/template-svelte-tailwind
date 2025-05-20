@@ -24,7 +24,7 @@ export const tiktok_url = 'https://www.tiktok.com/@examplebusiness';
 
 export const cp_year = `${new Date().getFullYear()}`;
 export const cp_holder = 'slimnate';
-export const cp_url = 'https://www.slimnate.com/';
+export const cp_url = 'https://www.slimnate.net/';
 
 export default {
 	name,
