@@ -7,7 +7,7 @@
 	 * @type {FAQItem[]}
 	 * @description An array of frequently asked questions and their answers.
 	 */
-	export const faqs = [];
+	export let faqs = [];
 </script>
 
 <div class="flex flex-col items-center py-12 text-left">
