@@ -31,7 +31,7 @@
 	heroImage="https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp"
 />
 
-<div class="bg-base-200 flex flex-col items-center py-12">
+<div class="flex flex-col items-center py-12">
 	<div class="card bg-base-100 w-full max-w-2xl shadow-xl">
 		<div class="card-body">
 			<form on:submit|preventDefault={submitBooking} class="grid grid-cols-2 gap-6" novalidate>

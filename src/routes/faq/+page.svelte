@@ -10,7 +10,7 @@
 	heroImage="https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp"
 />
 
-<div class="bg-base-200 flex flex-col items-center py-12 text-left">
+<div class="flex flex-col items-center py-12 text-left">
 	<div class="w-full max-w-3xl space-y-2">
 		{#each faqs as faq, index}
 			<div class="bg-base-100 border-base-300 collapse-arrow collapse border">
