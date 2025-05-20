@@ -51,7 +51,7 @@
 			{#each aboutData.team as member}
 				<div>
 					<div class="avatar">
-						<div class="w-32 rounded-full">
+						<div class="ring-secondary ring-offset-base-100 w-32 rounded-full ring-2 ring-offset-2">
 							<img src={member.image} alt={member.name} />
 						</div>
 					</div>

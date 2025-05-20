@@ -15,17 +15,17 @@ export const aboutData = {
 		{
 			name: 'John Doe',
 			role: 'CEO',
-			image: 'https://placeholderjs.com/150x150'
+			image: '/img/avatar-placeholder.webp'
 		},
 		{
 			name: 'Jane Smith',
 			role: 'CTO',
-			image: 'https://placeholderjs.com/150x150'
+			image: '/img/avatar-placeholder.webp'
 		},
 		{
 			name: 'Alice Johnson',
 			role: 'COO',
-			image: 'https://placeholderjs.com/150x150'
+			image: '/img/avatar-placeholder.webp'
 		}
 	]
 };
