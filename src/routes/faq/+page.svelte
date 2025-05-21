@@ -6,7 +6,6 @@
 
 <TitleHero
 	title="Frequently Asked Questions"
-	subtitle="Your questions answered"
 	size="small"
 	heroImage="https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp"
 />
