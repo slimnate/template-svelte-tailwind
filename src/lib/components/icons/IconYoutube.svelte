@@ -18,7 +18,7 @@
 </script>
 
 <!-- Youtube -->
-<span class="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-[#ff0000]">
+<span>
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 576 512"

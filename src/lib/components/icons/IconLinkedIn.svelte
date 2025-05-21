@@ -18,7 +18,7 @@
 </script>
 
 <!-- Linkedin -->
-<span class="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-[#0077b5]">
+<span>
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 448 512"
