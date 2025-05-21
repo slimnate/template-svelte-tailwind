@@ -1,3 +1,13 @@
+/**
+ * @typedef {Object} FAQItem
+ * @property {string} question - The question to be displayed.
+ * @property {string} answer - The answer to the question.
+ */
+
+/**
+ * @type {FAQItem[]}
+ * @description An array of frequently asked questions and their answers.
+ */
 export const faqs = [
 	{
 		question: 'What is your refund policy?',

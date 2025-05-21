@@ -1,3 +1,16 @@
+/**
+ * @typedef {Object} TeamMember
+ * @property {string} name - The name of the team member.
+ * @property {string} role - The role of the team member.
+ * @property {string} image - The URL of the team member's image.
+ *
+ * @typedef {Object} AboutData
+ * @property {string} subtitle - A brief description of the company.
+ * @property {string} mission - The company's mission statement.
+ * @property {string} vision - The company's vision statement.
+ * @property {string[]} values - A list of the company's core values.
+ * @property {TeamMember[]} team - An array of team members.
+ */
 export const aboutData = {
 	subtitle:
 		'We are a forward-thinking company dedicated to providing innovative solutions to our customers. Our mission is to deliver excellence in every aspect of our business.',

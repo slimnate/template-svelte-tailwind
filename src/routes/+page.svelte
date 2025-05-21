@@ -1,12 +1,12 @@
 <script>
-	import { name, description } from '$lib/data/meta.js';
+	import metaData from '$lib/data/meta.js';
 
 	import TitleHero from '$lib/components/TitleHero.svelte';
 </script>
 
 <TitleHero
-	title="Welcome to {name}"
-	subtitle={description}
+	title="Welcome to {metaData.name}"
+	subtitle={metaData.description}
 	heroImage="https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp"
 	size="large"
 	cta_text="Book Now"

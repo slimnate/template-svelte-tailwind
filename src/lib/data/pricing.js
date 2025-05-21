@@ -1,3 +1,18 @@
+/**
+ * @typedef {Object} Package
+ * @property {string} name - The name of the package.
+ * @property {number} price - The price of the package.
+ * @property {number[]} includedFeatures - An array of indexes representing the features included in the package.
+ * @property {boolean} featured - Whether the package is featured or not.
+ */
+
+/**
+ * @typedef {Object} PricingData
+ * @property {string[]} features - An array of feature descriptions.
+ * @property {Package[]} packages - An array of package objects.
+ */
+
+/** @type {PricingData} */
 export const pricing = {
 	features: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4', 'Feature 5'],
 	packages: [
