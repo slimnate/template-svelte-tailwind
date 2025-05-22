@@ -1,29 +1,33 @@
 <script>
-	export let size = '22px';
+	/**
+	 * @typedef {Object} Props
+	 * @property {boolean} [brandColors] - Use brand colors for the icon. Default false
+	 * @property {"xs" | "sm" | "md" | "lg" | "xl"} [size] - Size of the icon
+	 */
+
+	/** @type {Props} */
+	let { brandColors = false, size = 'sm' } = $props();
+
+	const sizeClasses = {
+		xs: 'h-4 w-4',
+		sm: 'h-6 w-6',
+		md: 'h-7 w-7',
+		lg: 'h-9 w-9',
+		xl: 'h-12 w-12'
+	};
 </script>
 
-<svg
-	width={size}
-	height={size}
-	viewBox="0 0 20 20"
-	version="1.1"
-	xmlns="http://www.w3.org/2000/svg"
-	xmlns:xlink="http://www.w3.org/1999/xlink"
-	fill="currentColor"
-	><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-		id="SVGRepo_tracerCarrier"
-		stroke-linecap="round"
-		stroke-linejoin="round"
-	></g><g id="SVGRepo_iconCarrier">
-		<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-			<g transform="translate(-180.000000, -7479.000000)" fill="currentColor">
-				<g transform="translate(56.000000, 160.000000)">
-					<path
-						d="M144,7339 L140,7339 L140,7332.001 C140,7330.081 139.153,7329.01 137.634,7329.01 C135.981,7329.01 135,7330.126 135,7332.001 L135,7339 L131,7339 L131,7326 L135,7326 L135,7327.462 C135,7327.462 136.255,7325.26 139.083,7325.26 C141.912,7325.26 144,7326.986 144,7330.558 L144,7339 L144,7339 Z M126.442,7323.921 C125.093,7323.921 124,7322.819 124,7321.46 C124,7320.102 125.093,7319 126.442,7319 C127.79,7319 128.883,7320.102 128.883,7321.46 C128.884,7322.819 127.79,7323.921 126.442,7323.921 L126.442,7323.921 Z M124,7339 L129,7339 L129,7326 L124,7326 L124,7339 Z"
-					>
-					</path>
-				</g>
-			</g>
-		</g>
-	</g></svg
->
+<!-- Linkedin -->
+<span>
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 448 512"
+		fill={brandColors ? '#0077b5' : 'currentColor'}
+		class={sizeClasses[size]}
+	>
+		<!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+		<path
+			d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"
+		/>
+	</svg>
+</span>

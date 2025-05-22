@@ -1,15 +1,33 @@
+<script>
+	/**
+	 * @typedef {Object} Props
+	 * @property {"xs" | "sm" | "md" | "lg" | "xl"} [size] - Size of the icon
+	 */
+
+	/** @type {Props} */
+	let { size = 'sm' } = $props();
+
+	const sizeClasses = {
+		xs: 'h-4 w-4',
+		sm: 'h-6 w-6',
+		md: 'h-7 w-7',
+		lg: 'h-9 w-9',
+		xl: 'h-12 w-12'
+	};
+</script>
+
+<!-- Home -->
 <svg
-	aria-hidden="true"
-	focusable="false"
-	data-prefix="fas"
-	data-icon="home"
-	class="mr-4 w-4"
-	role="img"
 	xmlns="http://www.w3.org/2000/svg"
-	viewBox="0 0 576 512"
+	fill="none"
+	viewBox="0 0 24 24"
+	stroke-width="1.5"
+	class={sizeClasses[size]}
+	stroke="currentColor"
 >
 	<path
-		fill="currentColor"
-		d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+		d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
 	/>
 </svg>
