@@ -92,19 +92,19 @@
 				</h6>
 				{#if address}
 					<p class="mb-4 flex items-center justify-center md:justify-start">
-						<span class="text-secondary"><IconHouse /></span>
+						<span class="text-secondary mr-4"><IconHouse /></span>
 						{address}
 					</p>
 				{/if}
 				{#if email}
 					<p class="mb-4 flex items-center justify-center md:justify-start">
-						<span class="text-secondary"><IconMail /></span>
+						<span class="text-secondary mr-4"><IconMail /></span>
 						{email}
 					</p>
 				{/if}
 				{#if phone}
 					<p class="mb-4 flex items-center justify-center md:justify-start">
-						<span class="text-secondary"> <IconPhone /> </span>
+						<span class="text-secondary mr-4"> <IconPhone /> </span>
 						{phone}
 					</p>
 				{/if}
