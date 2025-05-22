@@ -29,22 +29,11 @@
 <section class="px-6 py-12 text-center">
 	<div class="mx-auto w-full">
 		<h2 class="mb-6 text-3xl font-bold">What Our Customers Say</h2>
-		<div class="carousel max-w-lg space-y-6" bind:this={carouselElement}>
+		<div class="carousel max-w-[80vw] space-y-6 md:max-w-lg" bind:this={carouselElement}>
 			{#each reviews as review, index}
 				<div
 					id={`slide-${index}`}
-					class="carousel-item card flex w-full max-w-lg flex-col items-center"
-				>
-					<img src={review.profileImage} alt={review.name} class="mb-4 h-24 w-24 rounded-full" />
-					<h3 class="text-xl font-semibold">{review.name}</h3>
-					<p class="text-yellow-500">{'★'.repeat(review.rating)}{'☆'.repeat(5 - review.rating)}</p>
-					<p class="max-w-2xl">{review.review}</p>
-				</div>
-			{/each}
-			{#each reviews as review, index}
-				<div
-					id={`slide-${index}`}
-					class="carousel-item card flex w-full max-w-lg flex-col items-center"
+					class="carousel-item card flex w-full max-w-[80vw] flex-col items-center md:max-w-lg"
 				>
 					<img src={review.profileImage} alt={review.name} class="mb-4 h-24 w-24 rounded-full" />
 					<h3 class="text-xl font-semibold">{review.name}</h3>
