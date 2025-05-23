@@ -1,58 +1,73 @@
 <script>
 	/** @typedef {import('$lib/data/reviews').Review} Review */
 
+	import { onMount } from 'svelte';
+	import IconArrowLeft from '$lib/components/icons/IconArrowLeft.svelte';
+	import IconArrowRight from '$lib/components/icons/IconArrowRight.svelte';
+
+	onMount(async () => {
+		const { Carousel, initTE } = await import('tw-elements');
+		initTE({ Carousel });
+	});
+
 	let activeIndex = $state(0);
 
-	/** @type {HTMLDivElement} */
-	let carouselElement;
+	function prevSlide() {
+		activeIndex = (activeIndex - 1 + reviews.length) % reviews.length;
+	}
 
-	/**
-	 * @description Scrolls to the specified element in the carousel.
-	 * @param {number} index
-	 * @param index
-	 */
-	function scrollToElement(index) {
-		const element = document.getElementById(`slide-${index}`);
-		if (element) {
-			element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-			activeIndex = index;
-		}
+	function nextSlide() {
+		activeIndex = (activeIndex + 1) % reviews.length;
 	}
 
 	/**
-	 * @type {{reviews : Review[]}}
-	 * @description An array of customer reviews.
+	 * @typedef {Object} Props
+	 * @property {Review[]} reviews - An array of customer reviews.
+	 * @property {string} [title] - The title of the review carousel.
+	 *
+	 * @param {Props} props - The props object.
 	 */
-	let { reviews } = $props();
+	let { reviews, title = 'What Our Customers Say' } = $props();
 </script>
 
 <section class="px-6 py-12 text-center">
-	<div class="mx-auto w-full">
-		<h2 class="mb-6 text-3xl font-bold">What Our Customers Say</h2>
-		<div class="carousel max-w-[80vw] space-y-6 md:max-w-lg" bind:this={carouselElement}>
-			{#each reviews as review, index}
-				<div
-					id={`slide-${index}`}
-					class="carousel-item card flex w-full max-w-[80vw] flex-col items-center md:max-w-lg"
-				>
-					<img src={review.profileImage} alt={review.name} class="mb-4 h-24 w-24 rounded-full" />
-					<h3 class="text-xl font-semibold">{review.name}</h3>
-					<p class="text-yellow-500">{'★'.repeat(review.rating)}{'☆'.repeat(5 - review.rating)}</p>
-					<p class="max-w-2xl">{review.review}</p>
-				</div>
-			{/each}
-		</div>
-		<div class="mt-6 flex justify-center space-x-2">
-			{#each reviews as _, index}
-				<button
-					type="button"
-					class={activeIndex === index
-						? 'btn btn-primary btn-xs btn-circle'
-						: 'btn btn-xs btn-circle'}
-					aria-label={`Go to slide ${index + 1}`}
-					onclick={() => scrollToElement(index)}
-				></button>
-			{/each}
+	<div class="mx-auto flex w-full flex-col items-center">
+		<h2 class="mb-6 text-3xl font-bold">{title}</h2>
+		<div class="max-w-[80vw] space-y-6 md:max-w-lg">
+			<!-- Carousel items -->
+			<div class=" flex items-center">
+				<button class="btn btn-circle mr-2" onclick={prevSlide}><IconArrowLeft /></button>
+				{#each reviews as review, index}
+					<div
+						class="card bg-base-200 flex w-full flex-col items-center p-6 {activeIndex === index
+							? ''
+							: 'hidden'}"
+						id={`slide-${index}`}
+					>
+						<img src={review.profileImage} alt={review.name} class="mb-4 h-24 w-24 rounded-full" />
+						<h3 class="text-xl font-semibold">{review.name}</h3>
+						<p class="text-yellow-500">
+							{'★'.repeat(review.rating)}{'☆'.repeat(5 - review.rating)}
+						</p>
+						<p class="max-w-2xl">{review.review}</p>
+					</div>
+				{/each}
+				<button class="btn btn-circle ml-2" onclick={nextSlide}><IconArrowRight /></button>
+			</div>
+
+			<!-- Carousel indicators -->
+			<div class="mt-6 flex justify-center space-x-2">
+				{#each reviews as _, index}
+					<button
+						type="button"
+						class={activeIndex === index
+							? 'btn btn-primary btn-xs btn-circle'
+							: 'btn btn-xs btn-circle'}
+						aria-label={`Go to slide ${index + 1}`}
+						onclick={() => (activeIndex = index)}
+					></button>
+				{/each}
+			</div>
 		</div>
 	</div>
 </section>
