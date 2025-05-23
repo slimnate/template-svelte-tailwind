@@ -1,4 +1,5 @@
 <script>
+	/** @typedef {import('$lib/data/nav').NavItem} NavItem */
 	import IconHamburger from '$lib/components/icons/IconHamburger.svelte';
 	import { onMount } from 'svelte';
 	import { dev } from '$app/environment';
@@ -19,35 +20,43 @@
 	});
 
 	/**
+	 * Handles navigation item clicks and collapses the navbar.
 	 * @param {MouseEvent & { currentTarget: EventTarget & HTMLAnchorElement; }} event
 	 */
 	async function handleNavItemClick(event) {
 		const { Collapse } = await import('tw-elements');
 		const collapse = Collapse.getInstance(document.querySelector('#navbarContent'));
-		collapse.hide();
+		if (collapse) collapse.hide();
 	}
 
-	let { navItems, siteName = 'Example Business' } = $props();
+	/**
+	 * @typedef {Object} Props
+	 * @property {NavItem[]} navItems - An array of navigation items.
+	 * @property {string} [siteName] - The name of the site.
+	 *
+	 * @param {Props} props - The props object.
+	 */
+	/** @type {Props} */
+	let { navItems, siteName } = $props();
 </script>
 
 <nav
-	class="navbar bg-secondary text-secondary-content relative min-h-0 shadow-sm"
+	class="navbar bg-secondary text-secondary-content relative relative min-h-0 shadow-sm"
 	data-twe-navbar-ref
 >
+	<!-- Hamburger button for mobile view -->
+	<button
+		class="btn btn-ghost absolute top-0 bottom-0 left-2 my-auto md:hidden"
+		type="button"
+		data-twe-collapse-init
+		data-twe-target="#navbarContent"
+		aria-controls="navbarContent"
+		aria-expanded="false"
+		aria-label="Toggle navigation"
+	>
+		<IconHamburger />
+	</button>
 	<div class="my-auto flex w-full flex-wrap items-center justify-between">
-		<!-- Hamburger button for mobile view -->
-		<button
-			class="btn btn-ghost md:hidden"
-			type="button"
-			data-twe-collapse-init
-			data-twe-target="#navbarContent"
-			aria-controls="navbarContent"
-			aria-expanded="false"
-			aria-label="Toggle navigation"
-		>
-			<IconHamburger />
-		</button>
-
 		<!-- Navbar title -->
 		<div class="flex grow items-center justify-center md:justify-start">
 			<a class="btn btn-ghost text-xl" href="/">{siteName}</a>
@@ -72,9 +81,9 @@
 						class="md:mt-0 md:mb-0"
 						data-twe-nav-item-ref
 					>
-						<a class="sm:text-lg" onclick={handleNavItemClick} {href} data-twe-nav-link-ref
-							>{text}</a
-						>
+						<a class="sm:text-lg" onclick={handleNavItemClick} {href} data-twe-nav-link-ref>
+							{text}
+						</a>
 					</li>
 				{/each}
 			</ul>
@@ -98,13 +107,13 @@
 					<path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
 				</svg>
 			</div>
-			<ul tabindex="0" class="dropdown-content bg-base-300 rounded-box z-1 w-52 p-2 shadow-2xl">
+			<ul class="dropdown-content bg-base-300 rounded-box z-1 w-52 p-2 shadow-2xl">
 				{#each themes as theme}
 					<li>
 						<input
 							type="radio"
 							name="theme-dropdown"
-							class="theme-controller btn btn-sm btn-block btn-ghost w-full justify-start"
+							class="theme-controller btn btn-sm btn-ghost justify-start"
 							aria-label={theme}
 							value={theme}
 						/>
