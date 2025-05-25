@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	/** @typedef {import('$lib/data/nav').NavItem} NavItem */
 	import IconHamburger from '$lib/components/icons/IconHamburger.svelte';
 	import { onMount } from 'svelte';
@@ -21,9 +21,8 @@
 
 	/**
 	 * Handles navigation item clicks and collapses the navbar.
-	 * @param {MouseEvent & { currentTarget: EventTarget & HTMLAnchorElement; }} event
 	 */
-	async function handleNavItemClick(event) {
+	async function closeNavMenu(event: MouseEvent) {
 		const { Collapse } = await import('tw-elements');
 		const collapse = Collapse.getInstance(document.querySelector('#navbarContent'));
 		if (collapse) collapse.hide();
@@ -41,12 +40,12 @@
 </script>
 
 <nav
-	class="navbar bg-secondary text-secondary-content relative relative min-h-0 shadow-sm"
+	class="navbar bg-secondary text-secondary-content relative min-h-0 shadow-sm"
 	data-twe-navbar-ref
 >
 	<!-- Hamburger button for mobile view -->
 	<button
-		class="btn btn-ghost absolute top-0 bottom-0 left-2 my-auto md:hidden"
+		class="btn btn-ghost absolute top-3 left-2 my-auto md:hidden"
 		type="button"
 		data-twe-collapse-init
 		data-twe-target="#navbarContent"
@@ -59,7 +58,7 @@
 	<div class="my-auto flex w-full flex-wrap items-center justify-between">
 		<!-- Navbar title -->
 		<div class="flex grow items-center justify-center md:justify-start">
-			<a class="btn btn-ghost text-xl" href="/">{siteName}</a>
+			<a class="btn btn-ghost text-xl" href="/" onclick={closeNavMenu}>{siteName}</a>
 		</div>
 
 		<!-- Collapsible navbar container -->
@@ -81,7 +80,7 @@
 						class="md:mt-0 md:mb-0"
 						data-twe-nav-item-ref
 					>
-						<a class="sm:text-lg" onclick={handleNavItemClick} {href} data-twe-nav-link-ref>
+						<a class="sm:text-lg" onclick={closeNavMenu} {href} data-twe-nav-link-ref>
 							{text}
 						</a>
 					</li>
@@ -93,7 +92,7 @@
 	<!-- Theme switcher -->
 	<!-- This is only shown in dev mode -->
 	{#if dev}
-		<div class="divider divider-horizontal h-10" />
+		<div class="divider divider-horizontal h-10"></div>
 		<div class="dropdown theme-controller clearfix">
 			<div tabindex="0" role="button" class="btn m-1">
 				Theme
