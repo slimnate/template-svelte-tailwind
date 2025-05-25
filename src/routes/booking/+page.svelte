@@ -72,9 +72,9 @@
 						bind:value={bookingData.phone}
 						placeholder="Phone Number"
 						required
-						pattern="[0-9]{`{9}`}"
+						pattern="[0-9]{`{10}`}"
 					/>
-					<div class="validator-hint absolute mt-0">Phone number must be 9 digits</div>
+					<div class="validator-hint absolute mt-0">Phone number must be 10 digits</div>
 				</div>
 
 				<!-- Email -->
@@ -117,7 +117,7 @@
 				</div>
 
 				<!-- Requested Package -->
-				<div>
+				<div class="relative col-span-2 md:col-span-1">
 					<select
 						id="package"
 						class="select select-bordered w-full"
@@ -132,7 +132,7 @@
 				</div>
 
 				<!-- Additional Info -->
-				<div>
+				<div class="relative col-span-2 md:col-span-1">
 					<textarea
 						id="additionalInfo"
 						class="textarea textarea-bordered w-full"
