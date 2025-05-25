@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import TitleHero from '$lib/components/TitleHero.svelte';
 	import { pricing } from '$lib/data/pricing.js';
 
@@ -13,9 +13,9 @@
 		additionalInfo: ''
 	};
 
-	function submitBooking(event) {
+	function submitBooking(event: SubmitEvent) {
 		// Check if the form is valid
-		if (!event.target.checkValidity()) {
+		if (event.target instanceof HTMLFormElement && !event.target.checkValidity()) {
 			alert('Please fix the errors before submitting.');
 			return;
 		}
@@ -94,7 +94,7 @@
 				<div class="relative col-span-2 md:col-span-1">
 					<input
 						id="date"
-						type="date"
+						type="text"
 						class="input input-bordered validator w-full"
 						bind:value={bookingData.date}
 						placeholder="Date"
@@ -107,7 +107,7 @@
 				<div class="relative col-span-2 md:col-span-1">
 					<input
 						id="time"
-						type="time"
+						type="text"
 						class="input input-bordered validator w-full"
 						bind:value={bookingData.time}
 						placeholder="Time"
