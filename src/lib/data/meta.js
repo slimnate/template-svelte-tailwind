@@ -43,8 +43,8 @@ const metadata = {
 
 	// Copyright information
 	cp_year: `${new Date().getFullYear()}`,
-	cp_holder: 'slimnate',
-	cp_url: 'https://slimnate.net/'
+	cp_holder: 'Spotlite Studios',
+	cp_url: 'https://spotlitestudios.com/'
 };
 
 export default metadata;
