@@ -14,14 +14,32 @@
 	};
 
 	function submitBooking(event: SubmitEvent) {
-		// Check if the form is valid
-		if (event.target instanceof HTMLFormElement && !event.target.checkValidity()) {
-			alert('Please fix the errors before submitting.');
-			return;
-		}
+		const formData = new FormData(event.target as HTMLFormElement);
 
-		console.log('Booking Data:', bookingData);
-		alert('Booking submitted successfully!');
+		Object.keys(bookingData).forEach((key) => {
+			formData.append(key, JSON.stringify(bookingData[key as keyof typeof bookingData]));
+		});
+
+		fetch('/netlify/forms.html', {
+			method: 'POST',
+			body: new URLSearchParams(formData).toString(),
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
+		})
+			.then((response) => {
+				if (response.ok) {
+					// Redirect to success page or show success message
+					window.location.href = '/booking/success';
+				} else {
+					console.log(response);
+					alert('There was an error submitting your booking. Please try again.');
+				}
+			})
+			.catch((error) => {
+				console.error('Error submitting booking:', error);
+				alert('There was an error submitting your booking. Please try again.');
+			});
 	}
 </script>
 
