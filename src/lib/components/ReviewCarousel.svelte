@@ -1,14 +1,8 @@
 <script>
 	/** @typedef {import('$lib/data/reviews').Review} Review */
 
-	import { onMount } from 'svelte';
 	import IconArrowLeft from '$lib/components/icons/IconArrowLeft.svelte';
 	import IconArrowRight from '$lib/components/icons/IconArrowRight.svelte';
-
-	onMount(async () => {
-		const { Carousel, initTE } = await import('tw-elements');
-		initTE({ Carousel });
-	});
 
 	let activeIndex = $state(0);
 
