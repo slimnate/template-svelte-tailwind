@@ -119,3 +119,11 @@
 		</div>
 	{/if}
 </nav>
+
+<style>
+	.featured {
+		background-color: var(--color-primary);
+		color: var(--color-primary-content);
+		margin-left: calc(var(--spacing) * 2);
+	}
+</style>
