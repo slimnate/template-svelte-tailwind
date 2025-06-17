@@ -26,48 +26,52 @@
 		cp_holder = null,
 		cp_year = null
 	} = $props();
+
+	const showSocials = fb_url || ig_url || tw_url || yt_url || li_url || tiktok_url;
 </script>
 
 <footer class="text-center lg:text-left">
 	<div
 		class="border-neutral flex items-center justify-center border-b p-4 md:justify-between md:p-6"
 	>
-		<!-- Social media links -->
-		<div class="mr-12 hidden md:block">
-			<span>Get connected on social networks:</span>
-		</div>
-		<div class="text-secondary flex justify-center">
-			{#if fb_url}
-				<a href={fb_url} class="mr-6 hover:scale-[1.05]" target="_blank" rel="noreferrer">
-					<IconFacebook />
-				</a>
-			{/if}
-			{#if ig_url}
-				<a href={ig_url} class="mr-6 hover:scale-[1.05]" target="_blank" rel="noreferrer">
-					<IconInstagram />
-				</a>
-			{/if}
-			{#if tw_url}
-				<a href={tw_url} class="mr-6 hover:scale-[1.05]" target="_blank" rel="noreferrer">
-					<IconTwitter />
-				</a>
-			{/if}
-			{#if yt_url}
-				<a href={yt_url} class="mr-6 hover:scale-[1.05]" target="_blank" rel="noreferrer">
-					<IconYoutube />
-				</a>
-			{/if}
-			{#if li_url}
-				<a href={li_url} class="mr-6 hover:scale-[1.05]" target="_blank" rel="noreferrer">
-					<IconLinkedIn />
-				</a>
-			{/if}
-			{#if tiktok_url}
-				<a href={tiktok_url} class="mr-6 hover:scale-[1.05]" target="_blank" rel="noreferrer">
-					<IconTikTok />
-				</a>
-			{/if}
-		</div>
+		{#if showSocials}
+			<!-- Social media links -->
+			<div class="mr-12 hidden md:block">
+				<span>Get connected on social networks:</span>
+			</div>
+			<div class="text-secondary flex justify-center">
+				{#if fb_url}
+					<a href={fb_url} class="mr-6 hover:scale-[1.05]" target="_blank" rel="noreferrer">
+						<IconFacebook />
+					</a>
+				{/if}
+				{#if ig_url}
+					<a href={ig_url} class="mr-6 hover:scale-[1.05]" target="_blank" rel="noreferrer">
+						<IconInstagram />
+					</a>
+				{/if}
+				{#if tw_url}
+					<a href={tw_url} class="mr-6 hover:scale-[1.05]" target="_blank" rel="noreferrer">
+						<IconTwitter />
+					</a>
+				{/if}
+				{#if yt_url}
+					<a href={yt_url} class="mr-6 hover:scale-[1.05]" target="_blank" rel="noreferrer">
+						<IconYoutube />
+					</a>
+				{/if}
+				{#if li_url}
+					<a href={li_url} class="mr-6 hover:scale-[1.05]" target="_blank" rel="noreferrer">
+						<IconLinkedIn />
+					</a>
+				{/if}
+				{#if tiktok_url}
+					<a href={tiktok_url} class="mr-6 hover:scale-[1.05]" target="_blank" rel="noreferrer">
+						<IconTikTok />
+					</a>
+				{/if}
+			</div>
+		{/if}
 	</div>
 
 	<!-- Footer links and contact information -->
