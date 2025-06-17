@@ -68,19 +68,16 @@
 			data-twe-collapse-item
 		>
 			<!-- Left links -->
-			<ul
-				class="list-style-none flex flex-col justify-end pl-0 font-semibold md:flex-row"
-				data-twe-navbar-nav-ref
-			>
+			<ul class="list-style-none flex flex-col justify-end pl-0 font-semibold md:flex-row">
 				<!-- Loop through navItems and create a list item for each -->
-				{#each navItems as { href, text }, index}
+				{#each navItems as { href, text, featured }, index}
 					<li
 						class:mt-4={index === 0}
 						class:mb-0={index === navItems.length - 1}
+						class:featured
 						class="md:mt-0 md:mb-0"
-						data-twe-nav-item-ref
 					>
-						<a class="sm:text-lg" onclick={closeNavMenu} {href} data-twe-nav-link-ref>
+						<a class="sm:text-lg" onclick={closeNavMenu} {href}>
 							{text}
 						</a>
 					</li>
