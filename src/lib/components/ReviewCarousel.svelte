@@ -3,6 +3,7 @@
 
 	import IconArrowLeft from '$lib/components/icons/IconArrowLeft.svelte';
 	import IconArrowRight from '$lib/components/icons/IconArrowRight.svelte';
+	import { onMount } from 'svelte';
 
 	let activeIndex = $state(0);
 
@@ -22,6 +23,16 @@
 	 * @param {Props} props - The props object.
 	 */
 	let { reviews, title = 'What Our Customers Say' } = $props();
+
+	// Automatically cycle through reviews every 5 seconds
+	onMount(() => {
+		const interval = setInterval(() => {
+			nextSlide();
+		}, 5000);
+
+		// Clear interval when the component is destroyed
+		return () => clearInterval(interval);
+	});
 </script>
 
 <section class="px-6 py-12 text-center">
