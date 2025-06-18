@@ -17,7 +17,7 @@
 				<input type="radio" name="faq-accordion" checked={index === 0} />
 				<div class="collapse-title font-semibold">{faq.question}</div>
 				<div class="collapse-content text-sm">
-					{faq.answer}
+					{@html faq.answer}
 				</div>
 			</div>
 		{/each}
